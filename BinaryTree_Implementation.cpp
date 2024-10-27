@@ -37,6 +37,40 @@ class Tree{
           cout<<root->data<<" ";
           display(root->right);
       }
+      Node *LeveloderInsert(Node *root,int data)
+      {
+          Node *newnode = new Node(data);
+          if(!root)
+            {
+                root = newnode;
+                return root;
+            }
+          else
+          {
+            queue<Node*> q;
+            q.push(root);
+            while(!q.empty())
+            {
+                Node *node = q.front();
+                q.pop();
+                if(node->left)
+                   q.push(node->left);
+                else
+                 {  
+                     node->left = newnode;
+                     return node;
+                 }
+                if(node->right)
+                   q.push(node->right);
+                else
+                {
+                   node->right = newnode;
+                   return node;
+                } 
+            }
+         }
+         return root;
+      }
       void LevelOrder(Node *root)
       {
         if(!root)
