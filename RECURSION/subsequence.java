@@ -1,11 +1,13 @@
 import java.util.*;
 
 
-public class Main
+public class subsequence
 {
+    public static boolean flag=false;
     public static void subse(int i,List<Integer> a,int arr[],int t,int sum){
         if(i==arr.length){
-            if(sum==t){
+            if(sum==t && flag==false){
+                flag = true;
             for(int x:a){
                 System.out.print(x+" ");
             }
